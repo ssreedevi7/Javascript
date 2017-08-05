@@ -1,0 +1,51 @@
+<html> 
+<head> 
+    <title>Total</title> 
+</head> 
+<script> 
+ function total(a, b, c,d) 
+ { 
+ var x = document.forms["myForm"]["num1"].value;
+    var y = document.forms["myForm"]["num2"].value;
+    var z = document.forms["myForm"]["num3"].value; 
+    var w = document.forms["myForm"]["num4"].value;
+   
+    if (x == null || x =="" || y == null || y=="" || z == null|| z=="" || w == null|| w =="" )
+     {
+        alert("Enter the value in the text box ");
+ }else
+  {
+   var ans = (10*parseInt(a)+1*parseInt(b) +5*parseInt(c) +3* parseInt(d)); 
+  alert ("Total amount for the Customer with " + a + ", " + b +","+c
+   + ", and "+d + "is" ); 
+    
+   document.getElementById('ans').innerHTML = ans;
+   }
+
+	
+  
+ 
+     
+  }
+</script> 
+<body> 
+<center> Calculating the total </center> 
+<p> 
+<form name="myForm" action="demo_form.asp"
+ method="post"> 
+ Enter number of Burgers  : <input type=text name=num1> 
+ <br><br> Number of Sodas : <input type=text name=num2> 
+ <br><br> Number of Extras Added: <input type=text name=num3> 
+ <br><br> Number of Sauses Added: <input type=text name=num4> 
+ <p> 
+ <input type=button value="Submit" 
+        onClick="total(num1.value, num2.value, num3.value, num4.value);"> 
+        
+<a href="sajja1a.html"> Back </a> 
+
+</form> 
+<p id="ans"></p>
+<p> 
+  
+</body> 
+</html> 

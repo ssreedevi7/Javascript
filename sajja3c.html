@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>
+
+</title>
+<body>
+<center>Select the Item to Order : <select name="menu" id="menu" >
+  <option value="http://www.nutritionsheet.com/facts/restaurants/fast-food/mcdonalds">Others </option>
+  <option value="http://66.195.8.98/~sajjas930/homework1/sajja1f.html">Breakfast </option>
+  <option value="http://66.195.8.98/~sajjas930/homework1/sajja1g.html">Burgers </option>
+  <option value="http://66.195.8.98/~sajjas930/homework1/sajja1e.html">Place An Order </option>
+</select></center>
+<script type="text/javascript">
+ var list = document.getElementById( 'menu' );
+ list.onchange = function() {
+      window.open( this.options[ this.selectedIndex ].value );
+ };
+</script>
+</body>
+</head>
+</html>

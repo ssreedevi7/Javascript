@@ -1,0 +1,20 @@
+<html> 
+<head> 
+    <title>Changing the color</title> 
+</head> 
+<body>
+<form id="form">
+    Enter the color  to change the background color:<input id="color" type="text" />
+    <br>
+    <br>
+    <input id="submit" value="Click to See Change" type="button" />
+</form>
+<script>
+function Background() {
+    var color = document.getElementById("color").value; 
+    document.bgColor = color;
+}
+document.getElementById("submit").addEventListener("click", Background, false);
+</script>
+</body> 
+</html> 

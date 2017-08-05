@@ -1,0 +1,137 @@
+<html><head><title>Hidden Menus</title>
+<script src="browsercodelibrary.js"></script>
+<script src="codelibrary.js"></script>
+<script type="text/javascript" language="Javascript">
+<!--
+var itembg = "Black";
+var itemcolor = "#66CCCC";
+var menu1url = new Array();
+menu1url[1] = "http://66.195.8.98/~sajjas930/homework1/sajja1a.html";
+menu1url[2] = "http://66.195.8.98/~sajjas930/homework1/sajja1f.html";
+menu1url[3] = "http://66.195.8.98/~sajjas930/homework1/sajja1g.html";
+var menu2url = new Array();
+menu2url[1] = "sajja3c.html";
+menu2url[2] = "http://66.195.8.98/~sajjas930/homework1/sajja1e.html";
+menu2url[3] = "http://66.195.8.98/~sajjas930/homework3/sajja3b.html";
+var menu3url = new Array();
+menu3url[1] = "https://www.mcdonalds.com/us/en-us/mcdonalds-app.html";
+menu3url[2] = "http://66.195.8.98/~sajjas930/homework1/sajja1h.html";
+
+function dropmenu(menuID) {
+        setVisibility('dropdown'+menuID,"visible");
+        menuFX(getObj('menutitle'+menuID),'over');
+}
+function hidemenu(menuID){
+        setVisibility('dropdown'+menuID,"hidden");
+        menuFX(getObj('menutitle'+menuID),'out');
+}
+function menuFX(thisobj,theevent){
+        if (theevent=='over'){
+               setBackground(thisobj,itembg);
+               setColor(thisobj,itemcolor);
+        }
+      else{
+               setBackground(thisobj,itemcolor);
+               setColor(thisobj,itembg);
+        }
+}
+function goPage(thisobj,menunum,itemnum){
+        menuFX(thisobj,"out");
+        hidemenu(menunum);     
+        window.location.href = eval("menu"+menunum+"url["+itemnum+"]");
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+body    { background:white; color:black;font-family:serif;} 
+h1, h2, b      {font-family:sans-serif; color:maroon;}
+.menubar { position:relative; height:1.5em; overflow:visible;}
+#menubar1 { z-index:6;}
+#menu1 { position:absolute;    left:0px; top:0px; width:150px;}
+#menu2 { position:absolute; left:150px; top:0px; width:150px;}
+#menu3 { position:absolute; left:300px; top:0px; width:150px;}
+.menutitle {
+        background:#66CCCC; color:black; font-weight:bolder;
+        border: 1px solid navy; padding:0px; position:absolute; 
+        left:0px; top:0px; width:150px; height:1.15em;
+        text-indent: .2em;
+}
+.dropdown {
+        background:#66CCCC; position:absolute;
+        left:0px; top:1.15em; width:150px;
+        visibility:hidden; z-index:4;
+}
+.menuitem {
+        position:relative; background:#66CCCC; color:black;
+        font-weight:bolder; border: 1px solid navy;
+        width:150px; text-indent: .5em;
+}
+-->
+</style>
+</head>
+<body onload="checkDOM('ex0.htm')" style= "background-color : lightpink;">
+
+<h1>Reference Sites for<br>McDonald </h1>
+<h2>Place-anywhere Hidden Menus</h2>
+<p>The menu below consists of Items , Referal Vedioes, and Total Cost of the Order.
+ A hidden menu will appear when you move your mouse 
+on top of any menu name. </p>
+<!--menubar - positioned relative to the window-->
+<!--creates positioning context for menu1, menu2, menu3-->
+<!--menu1 - absolute positioned 0,0 relative to menubar-->
+<!--creates positioning context for menutitle1, dropdown1-->
+<!--menu2 - absolute positioned 150,0 relative to menubar-->
+<!--creates positioning context for menutitle2, dropdown2-->
+<div id="menubar1" class="menubar">
+  <div id="menu1" onmouseover="dropmenu('1');" 
+                  onmouseout="hidemenu('1');">
+    <div id="menutitle1" class="menutitle">McDonald Menu</div>
+    <div id="dropdown1" class="dropdown">
+    <!--This div contains a hidden dropdown menu.-->
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,1,1);">
+             McDonald Main Page</div>
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,1,2);">
+            Breakfast</div>
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,1,3);">
+             Burgers</div>
+    </div>
+  </div>
+  <div onmouseover="dropmenu('2');" onmouseout="hidemenu('2');" id="menu2">
+    <div id="menutitle2" class="menutitle">Order</div>
+    <div class="dropdown" id="dropdown2">
+    <!--This div contains a hidden dropdown menu.-->
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,2,1);">
+        Select Item</div>
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,2,2);">
+        Place An Order</div>
+	  <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,2,3);">
+        Review The Cost</div>
+    </div>
+  </div>
+
+<div onmouseover="dropmenu('3');" onmouseout="hidemenu('3');" id="menu3">
+    <div id="menutitle3" class="menutitle">Refrences</div>
+    <div class="dropdown" id="dropdown3">
+    <!--This div contains a hidden dropdown menu.-->
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,3,1);">
+        Application Download</div>
+      <div class="menuitem" onmouseover="menuFX(this,'over');" 
+           onmouseout="menuFX(this,'out');" onclick="goPage(this,3,2);">
+        Videos For Review</div>
+	  </div>
+  </div>
+</div>
+<p>Move the mouse over the menu names to see the hidden drop down
+menus.</p>
+</body>
+</html>
+
+ 
